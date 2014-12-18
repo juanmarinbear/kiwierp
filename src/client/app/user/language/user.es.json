@@ -1,0 +1,46 @@
+{
+  "heading": "User",
+  "headers": {
+    "number": {
+      "label": "#"
+    },
+    "name": {
+      "label": "First Name"
+    },
+    "last": {
+      "label": "Last Name"
+    },
+    "username": {
+      "label": "Username"
+    },
+    "email": {
+      "label": "Email"
+    },
+    "mobile": {
+      "label": "Mobile"
+    },
+    "actions": {
+      "label": "Actions"
+    }
+  },
+  "actions": {
+    "add": {
+      "label":  "Add"
+    },
+    "cancel": {
+      "label":  "Cancel"
+    },
+    "edit": {
+      "label":  "Edit"
+    },
+    "delete": {
+      "label":  "Delete"
+    },
+    "save": {
+      "label":  "Save"
+    },
+    "reset": {
+      "label":  "Reset Password"
+    }
+  }
+}

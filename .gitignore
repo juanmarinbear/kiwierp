@@ -1,0 +1,32 @@
+# --------------------
+# Node 
+# --------------------
+
+node_modules
+
+# --------------------
+# Bower 
+# --------------------
+
+src/client/bower_components
+
+# --------------------
+# Build 
+# --------------------
+
+build
+
+# --------------------
+# Parse 
+# --------------------
+
+src/server/public
+src/server/config
+src/server/cloud/keychain.js
+
+# --------------------
+# Misc 
+# --------------------
+.tmp
+.sass-cache
+report

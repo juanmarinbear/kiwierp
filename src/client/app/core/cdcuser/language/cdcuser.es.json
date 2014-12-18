@@ -1,0 +1,49 @@
+{
+  "name": {
+    "name": "name",
+    "label": "Name",
+    "placeholder": "Name",
+    "help": "Name",
+    "validation": {
+      "required": "Name required"
+    }
+  },
+  "last": {
+    "name": "last",
+    "label": "Last Name",
+    "placeholder": "Last Name",
+    "help": "Last Name",
+    "validation": {
+      "required": "Last Name required"
+    }
+  },
+  "username": {
+    "name": "username",
+    "label": "Username",
+    "placeholder": "Username",
+    "help": "Username",
+    "validation": {
+      "required": "Username required"
+    }
+  },
+  "email": {
+    "name": "email",
+    "label": "Email",
+    "placeholder": "Email",
+    "help": "Email",
+    "validation": {
+      "required": "Username required",
+      "invalid": "Email invalid"
+    }
+  },
+  "mobile": {
+    "name": "mobile",
+    "label": "Mobile",
+    "placeholder": "Mobile",
+    "help": "Mobile",
+    "validation": {
+      "required": "Mobile required",
+      "invalid": "Mobile invalid, must be 10 digits"
+    }
+  }
+}

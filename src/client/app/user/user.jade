@@ -1,0 +1,41 @@
+.container-fluid
+  .row
+    .col-md-12
+      h1(class='page-header' data-ng-bind='vm.text.heading')
+  .row(data-ng-hide='vm.editable')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-primary btn-block' data-ng-bind='vm.text.actions.add.label' data-ng-click='vm.toggleEditable()')
+  cdc-user(user='vm.user' form='vm.form' data-ng-show='vm.editable')
+  .row(data-ng-show='vm.editable')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-danger btn-block' data-ng-bind='vm.text.actions.cancel.label' data-ng-click='vm.cancel()')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-success btn-block' data-ng-disabled='vm.form.$invalid' data-ng-bind='vm.text.actions.save.label' data-ng-click='vm.save(vm.user)')
+  .row
+    .col-md-12
+      .table-responsive
+        table(class='table table-hover')
+          thead
+            tr
+              th(data-ng-bind='vm.text.headers.number.label')
+              th(data-ng-bind='vm.text.headers.name.label')
+              th(data-ng-bind='vm.text.headers.last.label')
+              th(data-ng-bind='vm.text.headers.username.label')
+              th(data-ng-bind='vm.text.headers.email.label')
+              th(data-ng-bind='vm.text.headers.mobile.label')
+              th(data-ng-bind='vm.text.headers.actions.label')
+          tbody
+            tr(data-ng-repeat='u in vm.users')
+              td(data-ng-bind='$index')
+              td(data-ng-bind='u.name')
+              td(data-ng-bind='u.last')
+              td(data-ng-bind='u.username')
+              td(data-ng-bind='u.email')
+              td(data-ng-bind='u.mobile')
+              td
+                button(type='button' class='btn btn-warning' data-ng-bind='vm.text.actions.edit.label' data-ng-click='vm.edit(u)' data-ng-disabled='vm.editable')
+                button(type='button' class='btn btn-danger' data-ng-bind='vm.text.actions.delete.label' data-ng-click='vm.destroy(u)' data-ng-disabled='vm.editable')
+                button(type='button' class='btn btn-primary' data-ng-bind='vm.text.actions.reset.label' data-ng-click='vm.reset(u)' data-ng-disabled='vm.editable')

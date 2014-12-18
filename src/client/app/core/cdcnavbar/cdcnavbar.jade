@@ -1,0 +1,18 @@
+nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
+  .container-fluid
+    .navbar-header
+      a(class='navbar-brand', href='#/' data-ng-click='toggleSidebar()')
+        img(alt='Brand' src='')
+    ul(class='nav navbar-nav navbar-right hidden-xs')
+      li
+        a(href='#/')
+          i(class='fa fa-user fa-2x')
+      li
+        a(href='#/')
+          i(class='fa fa-shopping-cart fa-2x')
+      li
+        a(href='#/')
+          i(class='fa fa-life-saver fa-2x')
+    form(class='navbar-form navbar-right' role='search')
+      .form-group
+        input(type='text' class='form-control' placeholder='Buscar')

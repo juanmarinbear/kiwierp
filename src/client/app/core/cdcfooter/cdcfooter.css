@@ -1,0 +1,25 @@
+/* Sidebar
+ */
+.footer {
+  position: fixed;
+  z-index: 1050;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #222222;
+}
+
+.footer i {
+  margin-top: 0.5em;
+}
+
+.footer a {
+  color: #9d9d9d;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=cdcfooter.css.map */

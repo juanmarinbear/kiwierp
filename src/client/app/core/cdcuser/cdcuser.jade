@@ -1,0 +1,171 @@
+form(class='form' role='form' name='form' novalidate)
+  .row
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': form.name.$dirty && form.name.$error.required, \'has-success\': form.name.$dirty && form.name.$valid}'
+      )
+        label.control-label(
+          for='{{cdcUserVm.text.name.name}}'
+          data-ng-bind='cdcUserVm.text.name.label'
+          data-ng-show='form.name.$pristine || form.name.$valid'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.name.name}}'
+          data-ng-bind='cdcUserVm.text.name.validation.required'
+          data-ng-show='form.name.$dirty && form.name.$error.required'
+        )
+        input.form-control(
+          type='text'
+          id='{{cdcUserVm.text.name.name}}'
+          name='name'
+          placeholder='{{cdcUserVm.text.name.placeholder}}'
+          data-ng-model='user.name'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='form.name.$dirty && form.name.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='form.name.$dirty && form.name.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': form.last.$dirty && form.last.$error.required, \'has-success\': form.last.$dirty && form.last.$valid}'
+      )
+        label.control-label(
+          for='{{cdcUserVm.text.last.name}}'
+          data-ng-bind='cdcUserVm.text.last.label'
+          data-ng-show='form.last.$pristine || form.last.$valid'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.last.name}}'
+          data-ng-bind='cdcUserVm.text.last.validation.required'
+          data-ng-show='form.last.$dirty && form.last.$error.required'
+        )
+        input.form-control(
+          type='text'
+          id='{{cdcUserVm.text.last.name}}'
+          name='last'
+          placeholder='{{cdcUserVm.text.last.placeholder}}'
+          data-ng-model='user.last'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='form.last.$dirty && form.last.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='form.last.$dirty && form.last.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': form.username.$dirty && form.username.$error.required, \'has-success\': form.username.$dirty && form.username.$valid}'
+      )
+        label.control-label(
+          for='{{cdcUserVm.text.username.name}}'
+          data-ng-bind='cdcUserVm.text.username.label'
+          data-ng-show='form.username.$pristine || form.username.$valid'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.username.name}}'
+          data-ng-bind='cdcUserVm.text.username.validation.required'
+          data-ng-show='form.username.$dirty && form.username.$error.required'
+        )
+        input.form-control(
+          type='text'
+          id='{{cdcUserVm.text.username.name}}'
+          name='username'
+          placeholder='{{cdcUserVm.text.username.placeholder}}'
+          data-ng-model='user.username'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='form.username.$dirty && form.username.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='form.username.$dirty && form.username.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': form.email.$dirty && (form.email.$error.required || form.email.$error.email), \'has-success\': form.email.$dirty && form.email.$valid}'
+      )
+        label.control-label(
+          for='{{cdcUserVm.text.email.name}}'
+          data-ng-bind='cdcUserVm.text.email.label'
+          data-ng-show='form.email.$pristine || form.email.$valid'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.email.name}}'
+          data-ng-bind='cdcUserVm.text.email.validation.required'
+          data-ng-show='form.email.$dirty && form.email.$error.required'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.email.name}}'
+          data-ng-bind='cdcUserVm.text.email.validation.invalid'
+          data-ng-show='form.email.$dirty && form.email.$error.email'
+        )
+        input.form-control(
+          type='email'
+          id='{{cdcUserVm.text.email.name}}'
+          name='email'
+          placeholder='{{cdcUserVm.text.email.placeholder}}'
+          data-ng-model='user.email'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='form.email.$dirty && form.email.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='form.email.$dirty && form.email.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': form.mobile.$dirty && (form.mobile.$error.required || form.mobile.$error.pattern), \'has-success\': form.mobile.$dirty && form.mobile.$valid}'
+      )
+        label.control-label(
+          for='{{cdcUserVm.text.mobile.name}}'
+          data-ng-bind='cdcUserVm.text.mobile.label'
+          data-ng-show='form.mobile.$pristine || form.mobile.$valid'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.mobile.name}}'
+          data-ng-bind='cdcUserVm.text.mobile.validation.required'
+          data-ng-show='form.mobile.$dirty && form.mobile.$error.required'
+        )
+        label.control-label(
+          for='{{cdcUserVm.text.mobile.name}}'
+          data-ng-bind='cdcUserVm.text.mobile.validation.invalid'
+          data-ng-show='form.mobile.$dirty && form.mobile.$error.pattern'
+        )
+        input.form-control(
+          type='text'
+          id='{{cdcUserVm.text.mobile.name}}'
+          name='mobile'
+          placeholder='{{cdcUserVm.text.mobile.placeholder}}'
+          maxlength='10'
+          size='10'
+          data-ng-model='user.mobile'
+          data-ng-pattern='/\\d{10}/'
+          data-ng-maxlength='10'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='form.mobile.$dirty && form.mobile.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='form.mobile.$dirty && form.mobile.$invalid'
+        )
+          i(class='fa fa-times')
