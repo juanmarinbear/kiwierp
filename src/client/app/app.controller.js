@@ -17,6 +17,7 @@
 
     function activate() {
       console.log('Activating App Controller');
+      toggleSidebar();
     }
 
     function toggleSidebar() {
