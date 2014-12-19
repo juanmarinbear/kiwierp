@@ -5,9 +5,10 @@
   .module('app.user')
   .controller('User', User);
 
-  User.$inject = ['$scope', '$resource', '$http', 'template', 'user'];
+  User.$inject = ['$scope', '$resource', '$http', 'template', 'toastr', 'user'];
 
-  function User($scope, $resource, $http, template, user) {
+  function User($scope, $resource, $http, template, toastr, user) {
+
     var vm = this;
     vm.user = {};
     vm.form = {};
@@ -19,103 +20,106 @@
     vm.toggleEditable = toggleEditable;
     vm.save = save;
 
-    var headers = {
-      'Content-Type': 'application/json',
-      'X-Parse-Application-Id': 'qxZ4gXrFxfzRdFknCokB2pfSElAWCHd3G8tIGoXI',
-      'X-Parse-REST-API-Key': 'QObW916BsLBCj8rJfhJBuXM9hQh5q4qHGSaM2AbE'
-    };
-
-    var User = $resource(
-      'https://api.parse.com/1/users/:objectId',
-      {
-        objectId: '@objectId' 
-      },
-      { 
-        'get':    {method:'GET', headers: headers},
-        'save':   {method:'POST', headers: headers},
-        'edit':   {method:'PUT', headers: headers},
-        'query':  {method:'GET', headers: headers},
-        'remove': {method:'DELETE', headers: headers},
-        'delete': {method:'DELETE', headers: headers} 
-      }
-    );
-
     activate();
 
     function activate() {
+
       template.get('app/user/language/user.es.json')
       .then(function(result) {
         vm.text = result;
       })
       .then(function() {
+        $scope.$emit('startLoading');
         listUsers();
       });
     }
 
     function cancel() {
+
       vm.user = {};
       vm.form.$setPristine();
       toggleEditable();
+
     }
 
     function destroy(u) {
-      
+
+      $scope.$emit('startLoading');
       user.destroy(u)
       .then(
         function(response) {
-          console.log(response);
+          toastr.success(vm.text.actions.destroy.success);
           listUsers();
         },
         function(error) {
+          toastr.success(vm.text.actions.destroy.error);
           console.log(error);
+          $scope.$emit('stopLoading');
         });
+
     }
 
     function edit(u) {
+
       vm.user = u;
       vm.form.$setDirty();
       toggleEditable();
+
     }
 
     function listUsers() {
+
       user.list()
       .then(
         function(response) {
           vm.users = response.results;
+          $scope.$emit('stopLoading');
         },
         function(error) {
           console.log(error);
+          $scope.$emit('stopLoading');
         });
+
     }
 
     function reset(u) {
       
+      $scope.$emit('startLoading');
       user.reset(u)
       .then(
         function(response) {
-          console.log(response);
+          toastr.success(vm.text.actions.reset.success);
+          $scope.$emit('stopLoading');
         },
         function(error) {
+          toastr.error(vm.text.actions.reset.error);
           console.log(error);
+          $scope.$emit('stopLoading');
         });
+
     }
 
     function save(u) {
 
+      $scope.$emit('startLoading');
       user.save(u)
       .then(
         function(response) {
-          console.log(response);
+          toastr.success(vm.text.actions.save.success);
           listUsers();
           cancel();
         },
         function(error) {
-          console.log(error);
+          toastr.error(vm.text.actions.error.success);
+          $scope.$emit('stopLoading');
         });
+
     }
 
     function toggleEditable() {
+
       vm.editable = !vm.editable; 
+
     }
   }
 

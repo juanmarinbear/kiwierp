@@ -36,6 +36,21 @@
               td(data-ng-bind='u.email')
               td(data-ng-bind='u.mobile')
               td
-                button(type='button' class='btn btn-warning' data-ng-bind='vm.text.actions.edit.label' data-ng-click='vm.edit(u)' data-ng-disabled='vm.editable')
-                button(type='button' class='btn btn-danger' data-ng-bind='vm.text.actions.delete.label' data-ng-click='vm.destroy(u)' data-ng-disabled='vm.editable')
-                button(type='button' class='btn btn-primary' data-ng-bind='vm.text.actions.reset.label' data-ng-click='vm.reset(u)' data-ng-disabled='vm.editable')
+                .btn-group
+                  button(type='button' class='btn btn-primary dropdown-toggle' data-ng-disabled='vm.editable' data-toggle='dropdown')
+                    i(data-ng-class='vm.text.actions.actions.icon')&nbsp
+                    {{vm.text.actions.actions.label}}&nbsp
+                    span(class='fa fa-caret-down')
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='#' data-ng-click='vm.edit(u)')
+                        i(data-ng-class='vm.text.actions.edit.icon')&nbsp
+                        {{vm.text.actions.edit.label}}
+                    li
+                      a(href='#' data-ng-click='vm.destroy(u)')
+                        i(data-ng-class='vm.text.actions.destroy.icon')&nbsp
+                        {{vm.text.actions.destroy.label}}
+                    li
+                      a(href='#' data-ng-click='vm.reset(u)')
+                        i(data-ng-class='vm.text.actions.reset.icon')&nbsp
+                        {{vm.text.actions.reset.label}}

@@ -24,6 +24,10 @@
     }
   },
   "actions": {
+    "actions": {
+      "label":  "Actions",
+      "icon": "fa fa-user fa-fw"
+    },
     "add": {
       "label":  "Add"
     },
@@ -31,16 +35,25 @@
       "label":  "Cancel"
     },
     "edit": {
-      "label":  "Edit"
+      "label":  "Edit",
+      "icon": "fa fa-pencil fa-fw"
     },
-    "delete": {
-      "label":  "Delete"
+    "destroy": {
+      "label":  "Destroy",
+      "icon": "fa fa-trash-o fa-fw",
+      "success": "User destroyed!",
+      "error": "Something went wrong..."
     },
     "save": {
-      "label":  "Save"
+      "label":  "Save",
+      "success": "User saved!",
+      "error": "Something went wrong..."
     },
     "reset": {
-      "label":  "Reset Password"
+      "label":  "Reset Password",
+      "icon": "fa fa-bolt fa-fw",
+      "success": "Password reset!",
+      "error": "Something went wrong..."
     }
   }
 }
