@@ -1,0 +1,259 @@
+form(class='form' role='form' name='vm.form' novalidate)
+  .row
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.zip.$dirty && (vm.form.zip.$error.required || vm.form.zip.$error.pattern || vm.form.zip.$error.maxlength || vm.form.zip.$error.inexistent), \'has-success\': vm.form.zip.$dirty && vm.form.zip.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.zip.name}}'
+          data-ng-bind='vm.text.zip.label'
+          data-ng-show='vm.form.zip.$pristine || vm.form.zip.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.zip.name}}'
+          data-ng-bind='vm.text.zip.validation.required'
+          data-ng-show='vm.form.zip.$dirty && vm.form.zip.$error.required'
+        )
+        label.control-label(
+          for='{{vm.text.zip.name}}'
+          data-ng-bind='vm.text.zip.validation.invalid'
+          data-ng-show='vm.form.zip.$dirty && (vm.form.zip.$error.pattern || vm.form.zip.$error.maxlength)'
+        )
+        label.control-label(
+          for='{{vm.text.zip.name}}'
+          data-ng-bind='vm.text.zip.validation.inexistent'
+          data-ng-show='vm.form.zip.$dirty && vm.form.zip.$error.inexistent'
+        )
+        input.form-control(
+          type='text'
+          id='{{vm.text.zip.name}}'
+          name='zip'
+          placeholder='{{vm.text.zip.placeholder}}'
+          maxlength='5'
+          size='5'
+          data-ng-model='vm.address.zip'
+          data-ng-pattern='/\\d{5}/'
+          data-ng-maxlength='5'
+          data-ng-change='vm.geoZip(vm.address.zip)'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='vm.form.zip.$dirty && vm.form.zip.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.zip.$dirty && vm.form.zip.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.state.$dirty && vm.form.state.$error.required, \'has-success\': vm.form.state.$dirty && vm.form.state.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.state.name}}'
+          data-ng-bind='vm.text.state.label'
+          data-ng-show='vm.form.state.$pristine || vm.form.state.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.type.name}}'
+          data-ng-bind='vm.text.state.validation.required'
+          data-ng-show='vm.form.state.$dirty && vm.form.state.$error.required'
+        )
+        select.form-control(
+          id='{{vm.text.state.name}}'
+          name='state'
+          data-ng-model='vm.address.state'
+          data-ng-options='s.name as s.name for s in vm.states'
+          data-ng-change='vm.getMunicipalities(vm.address.state)'
+          required
+        )
+          option(
+            value=''
+            data-ng-bind='vm.text.state.options.default'
+            selected
+          )
+        span.form-control-feedback(
+          data-ng-show='vm.form.state.$dirty && vm.form.state.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.state.$dirty && vm.form.state.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.municipality.$dirty && vm.form.municipality.$error.required, \'has-success\': vm.form.municipality.$dirty && vm.form.municipality.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.municipality.name}}'
+          data-ng-bind='vm.text.municipality.label'
+          data-ng-show='vm.form.municipality.$pristine || vm.form.municipality.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.type.name}}'
+          data-ng-bind='vm.text.municipality.validation.required'
+          data-ng-show='vm.form.municipality.$dirty && vm.form.municipality.$error.required'
+        )
+        select.form-control(
+          id='{{vm.text.municipality.name}}'
+          name='municipality'
+          data-ng-model='vm.address.municipality'
+          data-ng-options='m.name as m.name for m in vm.municipalities'
+          data-ng-change='vm.getDistricts(vm.address)'
+          required
+        )
+          option(
+            value=''
+            data-ng-bind='vm.text.municipality.options.default'
+            selected
+          )
+        span.form-control-feedback(
+          data-ng-show='vm.form.municipality.$dirty && vm.form.municipality.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.municipality.$dirty && vm.form.municipality.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.district.$dirty && vm.form.district.$error.required, \'has-success\': vm.form.district.$dirty && vm.form.district.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.district.name}}'
+          data-ng-bind='vm.text.district.label'
+          data-ng-show='vm.form.district.$pristine || vm.form.district.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.type.name}}'
+          data-ng-bind='vm.text.district.validation.required'
+          data-ng-show='vm.form.district.$dirty && vm.form.district.$error.required'
+        )
+        select.form-control(
+          id='{{vm.text.district.name}}'
+          name='district'
+          data-ng-model='vm.address.district'
+          data-ng-options='s.name as s.name for s in vm.districts'
+          data-ng-change='vm.getZip(vm.address)'
+          required
+        )
+          option(
+            value=''
+            data-ng-bind='vm.text.district.options.default'
+            selected
+          )
+        span.form-control-feedback(
+          data-ng-show='vm.form.district.$dirty && vm.form.district.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.district.$dirty && vm.form.district.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.street.$dirty && vm.form.street.$error.required, \'has-success\': vm.form.street.$dirty && vm.form.street.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.street.name}}'
+          data-ng-bind='vm.text.street.label'
+          data-ng-show='vm.form.street.$pristine || vm.form.street.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.street.name}}'
+          data-ng-bind='vm.text.street.validation.required'
+          data-ng-show='vm.form.street.$dirty && vm.form.street.$error.required'
+        )
+        input.form-control(
+          type='text'
+          id='{{vm.text.street.name}}'
+          name='street'
+          placeholder='{{vm.text.street.placeholder}}'
+          data-ng-model='vm.address.street'
+          data-ng-blur='vm.geoStreet(vm.address)'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='vm.form.street.$dirty && vm.form.street.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.street.$dirty && vm.form.street.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.number.$dirty && vm.form.number.$error.required, \'has-success\': vm.form.number.$dirty && vm.form.number.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.number.name}}'
+          data-ng-bind='vm.text.number.label'
+          data-ng-show='vm.form.number.$pristine || vm.form.number.$valid'
+        )
+        label.control-label(
+          for='{{vm.text.number.name}}'
+          data-ng-bind='vm.text.number.validation.required'
+          data-ng-show='vm.form.number.$dirty && vm.form.number.$error.required'
+        )
+        input.form-control(
+          type='text'
+          id='{{vm.text.number.name}}'
+          name='number'
+          placeholder='{{vm.text.number.placeholder}}'
+          data-ng-model='vm.address.number'
+          data-ng-blur='vm.geoNumber(vm.address)'
+          required
+        )
+        span.form-control-feedback(
+          data-ng-show='vm.form.number.$dirty && vm.form.number.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.number.$dirty && vm.form.number.$invalid'
+        )
+          i(class='fa fa-times')
+    .col-md-3(class='col-xs-12')
+      .form-group(
+        class='has-feedback'
+        data-ng-class='{\'has-error\': vm.form.apt.$dirty && vm.form.apt.$error.required, \'has-success\': vm.form.apt.$dirty && vm.form.apt.$valid}'
+      )
+        label.control-label(
+          for='{{vm.text.apt.name}}'
+          data-ng-bind='vm.text.apt.label'
+          data-ng-show='vm.form.apt.$pristine || vm.form.apt.$valid'
+        )
+        input.form-control(
+          type='text'
+          id='{{vm.text.apt.name}}'
+          name='apt'
+          placeholder='{{vm.text.apt.placeholder}}'
+          data-ng-model='vm.address.apt'
+        )
+        span.form-control-feedback(
+          data-ng-show='vm.form.apt.$dirty && vm.form.apt.$valid'
+        )
+          i(class='fa fa-check')
+        span.form-control-feedback(
+          data-ng-show='vm.form.apt.$dirty && vm.form.apt.$invalid'
+        )
+          i(class='fa fa-times')
+  .row
+    .col-md-12
+      p
+        ui-gmap-google-map(
+          center='vm.address.geopoint'
+          zoom='vm.map.zoom'
+          pan='vm.map.pan'
+        )
+          ui-gmap-marker(
+            coords='vm.address.geopoint'
+            options='vm.marker.options'
+            events='vm.marker.events'
+            idkey='vm.marker.id'
+          )

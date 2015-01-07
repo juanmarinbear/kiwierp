@@ -1,23 +1,29 @@
 {
-  "heading": "User",
+  "heading": "Node",
   "headers": {
     "number": {
       "label": "#"
     },
     "name": {
-      "label": "First Name"
+      "label": "Name"
     },
-    "last": {
-      "label": "Last Name"
+    "address": {
+      "label": "Address"
     },
-    "username": {
-      "label": "Username"
+    "district": {
+      "label": "District"
     },
-    "email": {
-      "label": "Email"
+    "municipality": {
+      "label": "Municipality"
     },
-    "mobile": {
-      "label": "Mobile"
+    "state": {
+      "label": "State"
+    },
+    "zip": {
+      "label": "Zip"
+    },
+    "links": {
+      "label": "Links"
     },
     "actions": {
       "label": "Actions"
@@ -26,7 +32,7 @@
   "actions": {
     "actions": {
       "label":  "Actions",
-      "icon": "fa fa-user fa-fw"
+      "icon": "fa fa-gears fa-fw"
     },
     "add": {
       "label":  "Add"
@@ -41,22 +47,12 @@
     "destroy": {
       "label":  "Destroy",
       "icon": "fa fa-trash-o fa-fw",
-      "success": "User destroyed!",
+      "success": "Node destroyed!",
       "error": "Something went wrong..."
     },
     "save": {
       "label":  "Save",
-      "success": "User saved!",
-      "error": "Something went wrong..."
-    },
-    "reset": {
-      "label":  "Reset Password",
-      "icon": "fa fa-bolt fa-fw",
-      "success": "Password reset!",
-      "error": "Something went wrong..."
-    },
-    "list": {
-      "success": "Users listed!",
+      "success": "Node saved!",
       "error": "Something went wrong..."
     }
   }

@@ -1,0 +1,113 @@
+{
+  "name": {
+    "name": "name",
+    "label": "Name",
+    "placeholder": "Name",
+    "help": "Name",
+    "validation": {
+      "required": "Name required"
+    }
+  },
+  "type": {
+    "name": "type",
+    "label": "Type",
+    "placeholder": "Type",
+    "help": "Type",
+    "options": {
+      "default": "-- Select --",
+      "items": [
+        { "label": "Building", "value": "building"},
+        { "label": "Premise", "value": "premise"}
+      ]
+    },
+    "validation": {
+      "required": "Type required"
+    }
+  },
+  "zip": {
+    "name": "zip",
+    "label": "Zip",
+    "placeholder": "Zip",
+    "help": "Zip",
+    "validation": {
+      "required": "Zip required",
+      "invalid": "Zip invalid, must be 5 digits",
+      "inexistent": "Zip inexistent"
+    }
+  },
+  "state": {
+    "name": "state",
+    "label": "State",
+    "placeholder": "State",
+    "help": "State",
+    "options": {
+      "default": "-- State --"
+    },
+    "validation": {
+      "required": "State required"
+    }
+  },
+  "municipality": {
+    "name": "municipality",
+    "label": "Municipality",
+    "placeholder": "Municipality",
+    "help": "Municipality",
+    "options": {
+      "default": "-- Municipality --"
+    },
+    "validation": {
+      "required": "Municipality required"
+    }
+  },
+  "district": {
+    "name": "district",
+    "label": "District",
+    "placeholder": "District",
+    "help": "District",
+    "options": {
+      "default": "-- District --"
+    },
+    "validation": {
+      "required": "District required"
+    }
+  },
+  "street": {
+    "name": "street",
+    "label": "Street",
+    "placeholder": "Street",
+    "help": "Street",
+    "validation": {
+      "required": "Street required"
+    }
+  },
+  "number": {
+    "name": "number",
+    "label": "Number",
+    "placeholder": "Number",
+    "help": "Number",
+    "validation": {
+      "required": "Number required"
+    }
+  },
+  "apt": {
+    "name": "apt",
+    "label": "Apt",
+    "placeholder": "Apt",
+    "help": "Apt"
+  },
+  "levels": {
+    "name": "levels",
+    "label": "Levels",
+    "placeholder": "Levels",
+    "help": "Levels",
+    "validation": {
+      "required": "Levels required",
+      "invalid": "Levels invalid, must be 2 digits"
+    }
+  },
+  "geopoint": {
+    "validation": {
+      "error": "Something went wrong..."
+    }
+  }
+}

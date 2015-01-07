@@ -2,16 +2,16 @@
   'use strict';
 
   angular
-  .module('app.user')
-  .controller('User', User);
+  .module('app.node')
+  .controller('Node', Node);
 
-  User.$inject = ['$scope', 'template', 'toastr', 'user'];
+  Node.$inject = ['$scope', '$resource', '$http', 'template', 'toastr', 'node'];
 
-  function User($scope, template, toastr, user) {
+  function Node($scope, $resource, $http, template, toastr, node) {
 
     var vm = this;
-    vm.user = {};
-    vm.form = {};
+    vm.node = {};
+    vm.forms = {};
     vm.cancel = cancel;
     vm.destroy = destroy;
     vm.edit = edit;
@@ -24,32 +24,31 @@
 
     function activate() {
 
-      template.get('app/user/language/user.es.json')
+      template.get('app/node/language/node.es.json')
       .then(function(result) {
         vm.text = result;
       })
       .then(function() {
         $scope.$emit('startLoading');
-        listUsers();
+        listNodes();
       });
     }
 
     function cancel() {
 
-      vm.user = {};
-      vm.form.$setPristine();
+      vm.node = {};
       toggleEditable();
 
     }
 
-    function destroy(u) {
+    function destroy(n) {
 
       $scope.$emit('startLoading');
-      user.destroy(u)
+      node.destroy(n)
       .then(
         function(response) {
           toastr.success(vm.text.actions.destroy.success);
-          listUsers();
+          listNodes();
         },
         function(error) {
           toastr.success(vm.text.actions.destroy.error);
@@ -59,35 +58,32 @@
 
     }
 
-    function edit(u) {
+    function edit(n) {
 
-      vm.user = u;
-      vm.form.$setDirty();
+      vm.node = n;
       toggleEditable();
 
     }
 
-    function listUsers() {
+    function listNodes() {
 
-      user.list()
+      node.list()
       .then(
         function(response) {
-          toastr.success(vm.text.actions.list.success);
-          vm.users = response.results;
+          vm.nodes = response.results;
           $scope.$emit('stopLoading');
         },
         function(error) {
-          toastr.error(vm.text.actions.list.error);
           console.log(error);
           $scope.$emit('stopLoading');
         });
 
     }
 
-    function reset(u) {
+    function reset(n) {
       
       $scope.$emit('startLoading');
-      user.reset(u)
+      node.reset(n)
       .then(
         function(response) {
           toastr.success(vm.text.actions.reset.success);
@@ -101,18 +97,22 @@
 
     }
 
-    function save(u) {
+    function save(n) {
 
       $scope.$emit('startLoading');
-      user.save(u)
+      node.save(n)
+      .$promise
       .then(
         function(response) {
+          console.log(response);
           toastr.success(vm.text.actions.save.success);
-          listUsers();
+          listNodes();
+          $scope.$emit('stopLoading'); // Remove this
           cancel();
         },
         function(error) {
-          toastr.error(vm.text.actions.error.success);
+          console.log(error)
+          toastr.error(vm.text.actions.save.error);
           $scope.$emit('stopLoading');
         });
 

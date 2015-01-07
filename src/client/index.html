@@ -23,21 +23,24 @@
     <link rel="stylesheet" href="/app/core/cdccontent/cdccontent.css" />
     <link rel="stylesheet" href="/app/core/cdcfooter/cdcfooter.css" />
     <link rel="stylesheet" href="/app/core/cdcloading/cdcloading.css" />
+    <link rel="stylesheet" href="/app/core/cdcnode/cdcnode.css" />
 
     <!-- Vendor JavaScript -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/typehead.js/dist/typeahead.bundle.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/lodash/dist/lodash.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 
     <!-- App JavaScript -->
     <script src="/app/app.module.js"></script>
-    <script src="/app/app.config.router.js"></script>
+    <script src="/app/app.config.js"></script>
     <script src="/app/app.controller.js"></script>
     <!-- Core Module -->
     <script src="/app/core/core.module.js"></script>
@@ -48,9 +51,14 @@
     <script src="/app/core/cdcfooter/cdcfooter.directive.js"></script>
     <script src="/app/core/cdcsearch/cdcsearch.directive.js"></script>
     <script src="/app/core/cdcuser/cdcuser.directive.js"></script>
+    <script src="/app/core/cdcnode/cdcnode.directive.js"></script>
+    <script src="/app/core/cdcaddress/cdcaddress.directive.js"></script>
     <script src="/app/core/cdcloading/cdcloading.directive.js"></script>
+    <script src="/app/core/cdcloading/cdcloading.factory.js"></script>
+    <script src="/app/core/mxpostapi/mxpostapi.factory.js"></script>
     <script src="/app/core/toastr/toastr.factory.js"></script>
     <script src="/app/core/user/user.factory.js"></script>
+    <script src="/app/core/node/node.factory.js"></script>
     <!-- Signin Module -->
     <script src="/app/signin/signin.module.js"></script>
     <script src="/app/signin/signin.config.router.js"></script>
@@ -59,6 +67,10 @@
     <script src="/app/user/user.module.js"></script>
     <script src="/app/user/user.config.router.js"></script>
     <script src="/app/user/user.controller.js"></script>
+    <!-- Node Module -->
+    <script src="/app/node/node.module.js"></script>
+    <script src="/app/node/node.config.router.js"></script>
+    <script src="/app/node/node.controller.js"></script>
 
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

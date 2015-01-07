@@ -1,0 +1,71 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 data-ng-bind="vm.text.heading" class="page-header"></h1>
+    </div>
+  </div>
+  <div data-ng-hide="vm.editable" class="row">
+    <div class="col-md-1">
+      <p>
+        <button type="button" data-ng-bind="vm.text.actions.add.label" data-ng-click="vm.toggleEditable()" class="btn btn-primary btn-block"></button>
+      </p>
+    </div>
+  </div>
+  <!--cdc-node(node='vm.node' form='vm.form' data-ng-if='vm.editable')-->
+  <cdc-address address="vm.node" form="vm.forms.address" data-ng-if="vm.editable"> </cdc-address>
+  <div data-ng-show="vm.editable" class="row">
+    <div class="col-md-1">
+      <p>
+        <button type="button" data-ng-bind="vm.text.actions.cancel.label" data-ng-click="vm.cancel()" class="btn btn-danger btn-block"></button>
+      </p>
+    </div>
+    <div class="col-md-1">
+      <p>
+        <button type="button" data-ng-disabled="vm.form.$invalid" data-ng-bind="vm.text.actions.save.label" data-ng-click="vm.save(vm.node)" class="btn btn-success btn-block"></button>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th data-ng-bind="vm.text.headers.number.label"></th>
+              <th data-ng-bind="vm.text.headers.name.label"></th>
+              <th data-ng-bind="vm.text.headers.address.label"></th>
+              <th data-ng-bind="vm.text.headers.district.label"></th>
+              <th data-ng-bind="vm.text.headers.municipality.label"></th>
+              <th data-ng-bind="vm.text.headers.state.label"></th>
+              <th data-ng-bind="vm.text.headers.zip.label"></th>
+              <th data-ng-bind="vm.text.headers.links.label"></th>
+              <th data-ng-bind="vm.text.headers.actions.label"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="n in vm.nodes">
+              <td data-ng-bind="$index"></td>
+              <td data-ng-bind="n.name"></td>
+              <td data-ng-bind="n.street + ' ' + n.number"></td>
+              <td data-ng-bind="n.district"></td>
+              <td data-ng-bind="n.municipality"></td>
+              <td data-ng-bind="n.state"></td>
+              <td data-ng-bind="n.zip"></td>
+              <td data-ng-bind="n.links"></td>
+              <td>
+                <div class="btn-group">
+                  <button type="button" data-ng-disabled="vm.editable" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i data-ng-class="vm.text.actions.actions.icon">&nbsp</i>{{vm.text.actions.actions.label}}&nbsp<span class="fa fa-caret-down"></span></button>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="#" data-ng-click="vm.edit(n)"><i data-ng-class="vm.text.actions.edit.icon">&nbsp</i>{{vm.text.actions.edit.label}}</a></li>
+                    <li><a href="#" data-ng-click="vm.destroy(n)"><i data-ng-class="vm.text.actions.destroy.icon">&nbsp</i>{{vm.text.actions.destroy.label}}</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
