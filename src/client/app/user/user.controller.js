@@ -5,9 +5,9 @@
   .module('app.user')
   .controller('User', User);
 
-  User.$inject = ['$scope', '$resource', '$http', 'template', 'toastr', 'user'];
+  User.$inject = ['$scope', 'template', 'toastr', 'user'];
 
-  function User($scope, $resource, $http, template, toastr, user) {
+  function User($scope, template, toastr, user) {
 
     var vm = this;
     vm.user = {};
@@ -72,10 +72,12 @@
       user.list()
       .then(
         function(response) {
+          toastr.success(vm.text.actions.list.success);
           vm.users = response.results;
           $scope.$emit('stopLoading');
         },
         function(error) {
+          toastr.error(vm.text.actions.list.error);
           console.log(error);
           $scope.$emit('stopLoading');
         });
