@@ -1,0 +1,94 @@
+
+<form role="form" name="form" novalidate="novalidate" class="form">
+  <div class="row">
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.name.$dirty &amp;&amp; form.name.$error.required, 'has-success': form.name.$dirty &amp;&amp; form.name.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.name.name}}" data-ng-bind="cdcNodeVm.text.name.label" data-ng-show="form.name.$pristine || form.name.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.name.name}}" data-ng-bind="cdcNodeVm.text.name.validation.required" data-ng-show="form.name.$dirty &amp;&amp; form.name.$error.required" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.name.name}}" name="name" placeholder="{{cdcNodeVm.text.name.placeholder}}" data-ng-model="node.name" required="required" class="form-control"/><span data-ng-show="form.name.$dirty &amp;&amp; form.name.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.name.$dirty &amp;&amp; form.name.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.type.$dirty &amp;&amp; form.type.$error.required, 'has-success': form.type.$dirty &amp;&amp; form.type.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.type.name}}" data-ng-bind="cdcNodeVm.text.type.label" data-ng-show="form.type.$pristine || form.type.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.type.name}}" data-ng-bind="cdcNodeVm.text.type.validation.required" data-ng-show="form.type.$dirty &amp;&amp; form.type.$error.required" class="control-label"></label>
+        <select id="{{cdcNodeVm.text.type.name}}" name="type" data-ng-model="node.type" data-ng-options="i.value as i.label for i in cdcNodeVm.text.type.options.items" required="required" class="form-control">
+          <option value="" data-ng-bind="cdcNodeVm.text.type.options.default" selected="selected"></option>
+        </select><span data-ng-show="form.type.$dirty &amp;&amp; form.type.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.type.$dirty &amp;&amp; form.type.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.zip.$dirty &amp;&amp; (form.zip.$error.required || form.zip.$error.pattern || form.zip.$error.maxlength || form.zip.$error.inexistent), 'has-success': form.zip.$dirty &amp;&amp; form.zip.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.zip.name}}" data-ng-bind="cdcNodeVm.text.zip.label" data-ng-show="form.zip.$pristine || form.zip.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.zip.name}}" data-ng-bind="cdcNodeVm.text.zip.validation.required" data-ng-show="form.zip.$dirty &amp;&amp; form.zip.$error.required" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.zip.name}}" data-ng-bind="cdcNodeVm.text.zip.validation.invalid" data-ng-show="form.zip.$dirty &amp;&amp; (form.zip.$error.pattern || form.zip.$error.maxlength)" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.zip.name}}" data-ng-bind="cdcNodeVm.text.zip.validation.inexistent" data-ng-show="form.zip.$dirty &amp;&amp; form.zip.$error.inexistent" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.zip.name}}" name="zip" placeholder="{{cdcNodeVm.text.zip.placeholder}}" maxlength="5" size="5" data-ng-model="node.zip" data-ng-pattern="/\d{5}/" data-ng-maxlength="5" data-ng-change="cdcNodeVm.geoZip(node.zip)" required="required" class="form-control"/><span data-ng-show="form.nodename.$dirty &amp;&amp; form.nodename.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.nodename.$dirty &amp;&amp; form.nodename.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.state.$dirty &amp;&amp; form.state.$error.required, 'has-success': form.state.$dirty &amp;&amp; form.state.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.state.name}}" data-ng-bind="cdcNodeVm.text.state.label" data-ng-show="form.state.$pristine || form.state.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.type.name}}" data-ng-bind="cdcNodeVm.text.state.validation.required" data-ng-show="form.state.$dirty &amp;&amp; form.state.$error.required" class="control-label"></label>
+        <select id="{{cdcNodeVm.text.state.name}}" name="state" data-ng-model="node.state" data-ng-options="s.name as s.name for s in cdcNodeVm.states" data-ng-change="cdcNodeVm.getMunicipalities(node.state)" required="required" class="form-control">
+          <option value="" data-ng-bind="cdcNodeVm.text.state.options.default" selected="selected"></option>
+        </select><span data-ng-show="form.state.$dirty &amp;&amp; form.state.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.state.$dirty &amp;&amp; form.state.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.municipality.$dirty &amp;&amp; form.municipality.$error.required, 'has-success': form.municipality.$dirty &amp;&amp; form.municipality.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.municipality.name}}" data-ng-bind="cdcNodeVm.text.municipality.label" data-ng-show="form.municipality.$pristine || form.municipality.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.type.name}}" data-ng-bind="cdcNodeVm.text.municipality.validation.required" data-ng-show="form.municipality.$dirty &amp;&amp; form.municipality.$error.required" class="control-label"></label>
+        <select id="{{cdcNodeVm.text.municipality.name}}" name="municipality" data-ng-model="node.municipality" data-ng-options="m.name as m.name for m in cdcNodeVm.municipalities" data-ng-change="cdcNodeVm.getDistricts(node.state, node.municipality)" required="required" class="form-control">
+          <option value="" data-ng-bind="cdcNodeVm.text.municipality.options.default" selected="selected"></option>
+        </select><span data-ng-show="form.municipality.$dirty &amp;&amp; form.municipality.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.municipality.$dirty &amp;&amp; form.municipality.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.district.$dirty &amp;&amp; form.district.$error.required, 'has-success': form.district.$dirty &amp;&amp; form.district.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.district.name}}" data-ng-bind="cdcNodeVm.text.district.label" data-ng-show="form.district.$pristine || form.district.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.type.name}}" data-ng-bind="cdcNodeVm.text.district.validation.required" data-ng-show="form.district.$dirty &amp;&amp; form.district.$error.required" class="control-label"></label>
+        <select id="{{cdcNodeVm.text.district.name}}" name="district" data-ng-model="node.district" data-ng-options="s.name as s.name for s in cdcNodeVm.districts" data-ng-change="cdcNodeVm.getZip(node.district)" required="required" class="form-control">
+          <option value="" data-ng-bind="cdcNodeVm.text.district.options.default" selected="selected"></option>
+        </select><span data-ng-show="form.district.$dirty &amp;&amp; form.district.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.district.$dirty &amp;&amp; form.district.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.street.$dirty &amp;&amp; form.street.$error.required, 'has-success': form.street.$dirty &amp;&amp; form.street.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.street.name}}" data-ng-bind="cdcNodeVm.text.street.label" data-ng-show="form.street.$pristine || form.street.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.street.name}}" data-ng-bind="cdcNodeVm.text.street.validation.required" data-ng-show="form.street.$dirty &amp;&amp; form.street.$error.required" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.street.name}}" name="street" placeholder="{{cdcNodeVm.text.street.placeholder}}" data-ng-model="node.street" data-ng-blur="cdcNodeVm.centerMap(node)" required="required" class="form-control"/><span data-ng-show="form.street.$dirty &amp;&amp; form.street.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.street.$dirty &amp;&amp; form.street.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.number.$dirty &amp;&amp; form.number.$error.required, 'has-success': form.number.$dirty &amp;&amp; form.number.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.number.name}}" data-ng-bind="cdcNodeVm.text.number.label" data-ng-show="form.number.$pristine || form.number.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.number.name}}" data-ng-bind="cdcNodeVm.text.number.validation.required" data-ng-show="form.number.$dirty &amp;&amp; form.number.$error.required" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.number.name}}" name="number" placeholder="{{cdcNodeVm.text.number.placeholder}}" data-ng-model="node.number" data-ng-blur="cdcNodeVm.centerMap(node)" required="required" class="form-control"/><span data-ng-show="form.number.$dirty &amp;&amp; form.number.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.number.$dirty &amp;&amp; form.number.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.apt.$dirty &amp;&amp; form.apt.$error.required, 'has-success': form.apt.$dirty &amp;&amp; form.apt.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.apt.name}}" data-ng-bind="cdcNodeVm.text.apt.label" data-ng-show="form.apt.$pristine || form.apt.$valid" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.apt.name}}" name="apt" placeholder="{{cdcNodeVm.text.apt.placeholder}}" data-ng-model="node.apt" class="form-control"/><span data-ng-show="form.apt.$dirty &amp;&amp; form.apt.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.apt.$dirty &amp;&amp; form.apt.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+      <div data-ng-class="{'has-error': form.levels.$dirty &amp;&amp; (form.levels.$error.required || form.levels.$error.pattern || form.levels.$error.maxlength), 'has-success': form.levels.$dirty &amp;&amp; form.levels.$valid}" class="form-group has-feedback">
+        <label for="{{cdcNodeVm.text.levels.name}}" data-ng-bind="cdcNodeVm.text.levels.label" data-ng-show="form.levels.$pristine || form.levels.$valid" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.levels.name}}" data-ng-bind="cdcNodeVm.text.levels.validation.required" data-ng-show="form.levels.$dirty &amp;&amp; form.levels.$error.required" class="control-label"></label>
+        <label for="{{cdcNodeVm.text.levels.name}}" data-ng-bind="cdcNodeVm.text.levels.validation.invalid" data-ng-show="form.levels.$dirty &amp;&amp; (form.levels.$error.pattern || form.levels.$error.maxlength)" class="control-label"></label>
+        <input type="text" id="{{cdcNodeVm.text.levels.name}}" name="levels" placeholder="{{cdcNodeVm.text.levels.placeholder}}" maxlength="2" size="2" data-ng-model="node.levels" data-ng-pattern="/\d{1,2}/" data-ng-maxlength="2" required="required" class="form-control"/><span data-ng-show="form.nodename.$dirty &amp;&amp; form.nodename.$valid" class="form-control-feedback"><i class="fa fa-check"></i></span><span data-ng-show="form.nodename.$dirty &amp;&amp; form.nodename.$invalid" class="form-control-feedback"><i class="fa fa-times"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <ui-gmap-google-map center="cdcNodeVm.map.center" zoom="cdcNodeVm.map.zoom" pan="cdcNodeVm.map.pan">
+          <ui-gmap-marker coords="cdcNodeVm.marker.coords" options="cdcNodeVm.marker.options" events="cdcNodeVm.marker.events" idkey="cdcNodeVm.marker.id"></ui-gmap-marker>
+        </ui-gmap-google-map>
+      </p>
+    </div>
+  </div>
+</form>
