@@ -1,0 +1,57 @@
+.container-fluid
+  .row
+    .col-md-12
+      h1(class='page-header' data-ng-bind='vm.text.heading')
+  .row(data-ng-hide='vm.editable')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-primary btn-block' data-ng-bind='vm.text.actions.add.label' data-ng-click='vm.toggleEditable()')
+  //cdc-node(node='vm.node' form='vm.form' data-ng-if='vm.editable')
+  cdc-address(address='vm.node' form='vm.forms.address' data-ng-if='vm.editable') 
+  .row(data-ng-show='vm.editable')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-danger btn-block' data-ng-bind='vm.text.actions.cancel.label' data-ng-click='vm.cancel()')
+    .col-md-1
+      p
+        button(type='button' class='btn btn-success btn-block' data-ng-disabled='vm.form.$invalid' data-ng-bind='vm.text.actions.save.label' data-ng-click='vm.save(vm.node)')
+  .row
+    .col-md-12
+      .table-responsive
+        table(class='table table-hover')
+          thead
+            tr
+              th(data-ng-bind='vm.text.headers.number.label')
+              th(data-ng-bind='vm.text.headers.name.label')
+              th(data-ng-bind='vm.text.headers.address.label')
+              th(data-ng-bind='vm.text.headers.district.label')
+              th(data-ng-bind='vm.text.headers.municipality.label')
+              th(data-ng-bind='vm.text.headers.state.label')
+              th(data-ng-bind='vm.text.headers.zip.label')
+              th(data-ng-bind='vm.text.headers.links.label')
+              th(data-ng-bind='vm.text.headers.actions.label')
+          tbody
+            tr(data-ng-repeat='n in vm.nodes')
+              td(data-ng-bind='$index')
+              td(data-ng-bind='n.name')
+              td(data-ng-bind='n.street + \' \' + n.number')
+              td(data-ng-bind='n.district')
+              td(data-ng-bind='n.municipality')
+              td(data-ng-bind='n.state')
+              td(data-ng-bind='n.zip')
+              td(data-ng-bind='n.links')
+              td
+                .btn-group
+                  button(type='button' class='btn btn-primary dropdown-toggle' data-ng-disabled='vm.editable' data-toggle='dropdown')
+                    i(data-ng-class='vm.text.actions.actions.icon')&nbsp
+                    {{vm.text.actions.actions.label}}&nbsp
+                    span(class='fa fa-caret-down')
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='#' data-ng-click='vm.edit(n)')
+                        i(data-ng-class='vm.text.actions.edit.icon')&nbsp
+                        {{vm.text.actions.edit.label}}
+                    li
+                      a(href='#' data-ng-click='vm.destroy(n)')
+                        i(data-ng-class='vm.text.actions.destroy.icon')&nbsp
+                        {{vm.text.actions.destroy.label}}

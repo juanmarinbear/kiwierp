@@ -1,0 +1,59 @@
+{
+  "heading": "Node",
+  "headers": {
+    "number": {
+      "label": "#"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "address": {
+      "label": "Address"
+    },
+    "district": {
+      "label": "District"
+    },
+    "municipality": {
+      "label": "Municipality"
+    },
+    "state": {
+      "label": "State"
+    },
+    "zip": {
+      "label": "Zip"
+    },
+    "links": {
+      "label": "Links"
+    },
+    "actions": {
+      "label": "Actions"
+    }
+  },
+  "actions": {
+    "actions": {
+      "label":  "Actions",
+      "icon": "fa fa-gears fa-fw"
+    },
+    "add": {
+      "label":  "Add"
+    },
+    "cancel": {
+      "label":  "Cancel"
+    },
+    "edit": {
+      "label":  "Edit",
+      "icon": "fa fa-pencil fa-fw"
+    },
+    "destroy": {
+      "label":  "Destroy",
+      "icon": "fa fa-trash-o fa-fw",
+      "success": "Node destroyed!",
+      "error": "Something went wrong..."
+    },
+    "save": {
+      "label":  "Save",
+      "success": "Node saved!",
+      "error": "Something went wrong..."
+    }
+  }
+}
