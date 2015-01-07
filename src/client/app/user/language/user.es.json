@@ -54,6 +54,10 @@
       "icon": "fa fa-bolt fa-fw",
       "success": "Password reset!",
       "error": "Something went wrong..."
+    },
+    "list": {
+      "success": "Users listed!",
+      "error": "Something went wrong..."
     }
   }
 }
